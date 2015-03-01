@@ -19,16 +19,17 @@ data_file.close()
 
 def main(argv):
   # Initialize/Preallocate list to hold alarm details
-  alarm = ['type','host','addr','srvc','output','desc'] 
+  alarm = ['type','host','addr','srvc','output','state'] 
 
   try:
     opts, args = getopt.getopt(argv,"h", ["help", "type=", "host=", "addr=",
-    "srvc=", "output=", "desc=", "initdb"])
+    "srvc=", "output=", "state=", "initdb"])
   except getopt.GetoptError as err:          
     print(err)
     usage()                         
     sys.exit(2)
-
+  if not args:
+    usage()
   # Handle all the options and arguments passed in
   for opt, arg in opts:
     if opt in ("-h", "--help"):
@@ -42,12 +43,10 @@ def main(argv):
       alarm[2] = arg
     elif opt == '--srvc':
       alarm[3] = arg
-    elif opt == '--desc':
-      alarm[4] = arg
     elif opt == '--output':
-      alarm[5] = arg
+      alarm[4] = arg
     elif opt == '--state':
-      srvcState = arg
+      alarm[5] = arg
     elif opt == '--initdb':
       initdb()
   # Generate new ticket if this is a new alarm
@@ -59,7 +58,13 @@ def main(argv):
 
 # Print usage, even though this is called by a daemon?
 def usage():
-  print("Usage: ticketer.py --host --addr --service --output --desc")
+  print("Usage: ticketer.py --type --host --addr --srvc --output --state")
+  print("--type $NOTIFICATIONTYPE$")
+  print("--host $HOSTNAME$")
+  print("--addr $HOSTADDRESS$")
+  print("--srvc $SERVICEDESC$")
+  print("--output $SERVICEOUTPUT$")
+  print("--state $SERVICESTATE$")
 
 # Setup sqlite database
 def initdb():

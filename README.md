@@ -7,6 +7,8 @@ Shinken Ticketer
 
 * Resolves incidents and removes ticket info from database when alarm clears.
 
+* Doesn't actually work yet.
+
 Installation:
 
 Clone repo to Shinken installation directory:
@@ -29,5 +31,5 @@ define command {
     command_name    ticketer
     command_line    /usr/bin/ticketer --type $NOTIFICATIONTYPE$ --host
     $HOSTNAME$ --addr $HOSTADDRESS$ --srvc $SERVICEDESC --output
-    $SERVICEOUTPUT$
+    $SERVICEOUTPUT$ --state $SERVICESTATE$
   }
