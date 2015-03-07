@@ -33,6 +33,7 @@ define command {
     $HOSTNAME$ --addr $HOSTADDRESS$ --srvc $SERVICEDESC --output
     $SERVICEOUTPUT$ --state $SERVICESTATE$
   }
+```
 
 TODO:
 
