@@ -10,7 +10,7 @@ Shinken Ticketer
 * Doesn't actually work yet.
 
 Installation:
-###
+####
 
 Clone repo to Shinken installation directory:
 
@@ -37,12 +37,16 @@ define command {
 ```
 
 TODO:
-###
+####
+
+* Finish ticket generation function (some fields do not populate correctly)
+
+* Build ticket resolution function
 
 * Daemonize script
 
 * Integrate web.py to accept http requests so Shinken command can be reduced
-to a curl command.
+to a curl request.
 
 * Add a list of mission critical systems, if they experience a problem alert
 set impact/urgency of ticket higher (P2)
