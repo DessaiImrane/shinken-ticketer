@@ -33,3 +33,13 @@ define command {
     $HOSTNAME$ --addr $HOSTADDRESS$ --srvc $SERVICEDESC --output
     $SERVICEOUTPUT$ --state $SERVICESTATE$
   }
+
+TODO:
+
+* Daemonize script
+
+* Integrate web.py to accept http requests so Shinken command can be reduced
+to a curl command.
+
+* Add a list of mission critical systems, if they experience a problem alert
+set impact/urgency of ticket higher (P2)
