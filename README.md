@@ -40,13 +40,9 @@ TODO:
 ####
 
 * Finish ticket generation function (some fields do not populate correctly)
-
+* Add a list of mission critical systems, if they experience a problem alert set impact/urgency of ticket higher (P2)
 * Build ticket resolution function
-
-* Daemonize script
-
-* Integrate web.py to accept http requests so Shinken command can be reduced
-to a curl request.
-
-* Add a list of mission critical systems, if they experience a problem alert
-set impact/urgency of ticket higher (P2)
+* Add comment with URL to shinken web ui
+* Handle recovery
+* What about flapping ?
+*	Auto Init DB if not exists
